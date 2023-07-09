@@ -7,7 +7,7 @@ const exphbs = require('express-handlebars');
 // Import controllers.
 const routes = require('./controllers');
 // Import connection to db via Sequelize and mysql2 driver.
-const sequelize = require('./config/connection');
+const sequelize = require('./config/connection.js');
 
 // Create new instance of express.
 const app = express();
