@@ -7,4 +7,11 @@
 // Define update post route. Post update form. and save post button
 
 
+const router = require('express').Router();
+router.get('/', (req, res) => {
+    res.render('landingPage');
+});
+module.exports = router;
+
+
 
