@@ -2,6 +2,8 @@
 const path = require('path');
 // Import Express
 const express = require('express');
+// Import connection to db via Sequelize and mysql2 driver.
+const sequelize = require('./config/connection');
 
 // Create new instance of express
 const app = express();
@@ -16,7 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Implement Sequlize to sync models to databse and start server.
-// sequelize.sync({ force: false }).then(() => {
+sequelize.sync({ force: false }).then(() => {
   // Set up server at specified port
   app.listen(PORT, () => console.log('Now listening'));
-// });
+});
