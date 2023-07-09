@@ -1,3 +1,4 @@
+const { Post } = require('../../models');
 // Define individual post view route. Render post and comment section
 
 // Define individual add comment route (CREATE). Render post and comment
