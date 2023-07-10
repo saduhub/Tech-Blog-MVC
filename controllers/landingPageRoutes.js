@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
 
 // Define home page route. Add middleware to check if user is logged in. Render all posts
 router.get('/home', (req, res) => {
-    res.render('landingPage');
+    res.render('home');
 });
 // Define Login route that wil take user input to login and render user dashboard if successful
 
