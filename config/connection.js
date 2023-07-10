@@ -15,6 +15,7 @@ const sequelize = new Sequelize(
     host: 'localhost',
     dialect: 'mysql',
     port: 3306,
+    timezone: 'America/New_York',
   }
 );
 // Export connection so that it can be used by other parts of the application.
