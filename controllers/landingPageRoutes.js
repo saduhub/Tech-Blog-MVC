@@ -4,6 +4,11 @@ const router = require('express').Router();
 router.get('/', (req, res) => {
     res.render('landingPage');
 });
+
+// Define home page route. Add middleware to check if user is logged in. Render all posts
+router.get('/home', (req, res) => {
+    res.render('landingPage');
+});
 // Define Login route that wil take user input to login and render user dashboard if successful
 
 // Define signup route that will take user input to signup and render user dashboard if successful
