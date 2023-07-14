@@ -6,10 +6,10 @@ PS Blog is an website designed to keep users connected to the latest Play Statio
 
 The primary motivation behind developing PS Blog was to solidify my knowledge of MVC. I was to bould a blog website using my knowledge of JavaScript, HTML, CSS, APIs, git, and Tailwind CSS. Throughout the development process, I gained valuable insights into API requests, authorization, authentication, and sessions. Making use of the Handlebars templating engine, as well as utilizing controllers and Sequelize, was crucial to completing this project successfully.
 
-Link to deployed application [here]()
+Link to deployed application [Coming Soon]()
 
 Screenshot of project:
-![Screenshot of project]()
+![Screenshot of project](./public/images/application%20landing%20page%20screenshot%20.png)
 
 ## Installation
 
