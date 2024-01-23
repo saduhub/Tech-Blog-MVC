@@ -1,17 +1,25 @@
 // Import router 
 const router = require('express').Router();
+// Require model
+const { User, Comment, Post} = require('../models')
+// Import middleware
+const withAuth = require('../utils/auth');
 // Define landing page route. Add middleware to check if user is logged in. Either render login/signup view (form) or User dashboard view
-router.get('/', (req, res) => {
-    res.render('landingPage');
+router.get('/', withAuth, async (req, res) => {
+  try {
+    res.render('home');
+  } catch (err) {
+    // res.redirect('login');
+    console.log('Something went wrong');
+  }
 });
 
-// Define home page route. Add middleware to check if user is logged in. Render all posts
-router.get('/home', (req, res) => {
-    res.render('landingPage');
+router.get('/login', (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect('/');
+    return;
+  }
+  res.render('login');
 });
-// Define Login route that wil take user input to login and render user dashboard if successful
-
-// Define signup route that will take user input to signup and render user dashboard if successful
-
 
 module.exports = router;

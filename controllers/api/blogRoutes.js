@@ -9,8 +9,8 @@ const { Post } = require('../../models');
 
 
 const router = require('express').Router();
-router.get('/', (req, res) => {
-    res.render('landingPage');
+router.get('/another', (req, res) => {
+    res.render('postByAnother');
 });
 module.exports = router;
 
