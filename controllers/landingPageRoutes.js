@@ -9,7 +9,8 @@ router.get('/', withAuth, async (req, res) => {
   try {
     res.render('home');
   } catch (err) {
-    res.redirect('loginorsignup');
+    // res.redirect('login');
+    console.log('Something went wrong');
   }
 });
 
@@ -18,8 +19,7 @@ router.get('/login', (req, res) => {
     res.redirect('/');
     return;
   }
-
-  res.render('loginorsignup');
+  res.render('login');
 });
 
 module.exports = router;

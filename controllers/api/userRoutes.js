@@ -1,22 +1,36 @@
 const router = require('express').Router();
-
-// Define Login route that will render user dashboard if successful
+const { User } = require('../../models');
+//  Login
 router.post('/login', async (req, res) => {
-    try {
-      const { username, password } = req.body;
-  
-      const user = await User.findOne({ where: { username } });
-  
-      if (!user || !user.isValidPassword(password)) {
-        return res.status(401).json({ success: false, message: 'Invalid username or password' });
-      }
-  
-      req.session.userId = user.id;
-      res.json({ success: true });
-    } catch (error) {
-      console.error(error);
-      res.status(500).json({ error: 'Internal Server Error' });
+  try {
+    const userData = await User.findOne({ where: { username: req.body.username } });
+
+    if (!userData) {
+      res
+        .status(400)
+        .json({ message: 'Incorrect username or password.' });
+      return;
     }
+
+    const validPassword = await userData.checkPassword(req.body.password);
+
+    if (!validPassword) {
+      res
+        .status(400)
+        .json({ message: 'Incorrect username or password' });
+      return;
+    }
+
+    req.session.save(() => {
+      req.session.user_id = userData.id;
+      req.session.logged_in = true;
+      
+      res.json({ user: userData, message: 'Login Successful' });
+    });
+
+  } catch (err) {
+    res.status(400).json(err);
+  }
 });
 // Define signup route that will take user input to signup and render user dashboard if successful
 
